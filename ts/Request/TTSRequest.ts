@@ -31,7 +31,7 @@ export class TTSRequest extends Request {
     super(apiAiClient, options);
     // this.requestMethod = XhrRequest.Method.GET;
     this.uri = ApiAiConstants.DEFAULT_TTS_HOST;
-    const AudioContext = window.AudioContext || webkitAudioContext;
+    const AudioContext = (<any>window).AudioContext || (<any>window).webkitAudioContext;
 
     if (!TTSRequest.audioContext) {
       TTSRequest.audioContext = new AudioContext();
